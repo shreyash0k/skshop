@@ -1,0 +1,49 @@
+<mat-toolbar class="toolbar">
+
+    <div fxHide.gt-xs>
+      <button mat-icon-button (click) = "onToggleSidenav()">
+        <mat-icon class="text-white">
+          menu
+        </mat-icon>
+      </button>
+    </div>
+    <div>
+      <a routerLink ="">
+        ShopSK
+      </a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign = "end"  fxHide.xs>
+      <ul fxLayout fxLayoutGap = "15px" class="navigation-items">
+
+        <li >
+          <a [routerLink] ="['/cart']">
+            Cart
+          </a>
+        </li>
+        <li *ngIf = "authenticate && authenticate.user.role === 1">
+          <a [routerLink] = "['/admin/manage']">
+            Manage
+          </a>
+        </li>
+
+
+        <li *ngIf = "!authenticate">
+          <a [routerLink] = "['/signin']"
+          routerLinkActive = "active">
+            Signin
+          </a>
+        </li>
+        <li *ngIf = "!authenticate">
+          <a [routerLink] = "['/signup']"
+          routerLinkActive = "active">
+            Signup
+          </a>
+        </li>
+        <li *ngIf = "authenticate">
+          <a routerLink ="" (click)="onLogout()" >
+            Singout
+          </a>
+        </li>
+      </ul>
+    </div>
+</mat-toolbar>

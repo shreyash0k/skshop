@@ -1,0 +1,17 @@
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+.image-preview{
+  height:480;
+  width: 800;
+}
+.image-preview img{
+  height: 100%;
+  width: 100%;
+}

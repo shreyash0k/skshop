@@ -1,0 +1,40 @@
+<div class="container">
+  <div class=" min-vh-100">
+      <div class="container-fluid py-3">
+            <p class="h1 text-center">Manage Store</p>
+            <div  *ngIf = "error.toString().length > 1" class="alert text-center alert-danger">
+                <a  class="close font-weight-light"  data-dismiss="alert"></a>{{error}}
+            </div>
+            <div  *ngIf = "success.toString().length > 1" class="alert text-center alert-success">
+                <a  class="close font-weight-light"  data-dismiss="alert"></a>{{success}}
+            </div>
+            <div class="row m-2" *ngFor="let product of products">
+
+              <div class="col-6 ">
+                <div class="row">
+                    {{product.name}}
+                </div>
+
+              </div>
+              <div class="col-6 ">
+                <div class="row">
+                    <a mat-raised-button class="m-1" [routerLink]="['/admin/manage/product/update',product._id]" color = "accent">
+                        Update
+                    </a>
+                      <button mat-raised-button class="m-1" (click)="onDelete(product._id)" color = "warn">
+                        Delete
+                      </button>
+                </div>
+
+              </div>
+
+
+
+
+
+            </div>
+      </div>
+  </div>
+</div>
+
+

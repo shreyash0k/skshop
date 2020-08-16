@@ -1,0 +1,49 @@
+<div class="container">
+  <p class="h1 text-center">Manage Store</p>
+
+      <div class="row">
+          <div class="col text-left">
+              <button mat-flat-button class="w-100 m-1" [routerLink] = "['/admin/create/product']" color="accent">
+                  Add Product
+                </button>
+          </div>
+          <div class="col text-right">
+              <a mat-flat-button class="w-100 m-1"  color="accent"[routerLink] = "['/admin/create/category']">
+                Create Category
+              </a>
+
+
+          </div>
+      </div>
+      <div class="row">
+          <div class="col text-left">
+              <button mat-flat-button [routerLink] = "['/admin/manage/products']" class="w-100 m-1" color="accent">
+                  Manage Products
+                </button>
+          </div>
+          <div class="col text-right">
+              <button mat-flat-button class="w-100 m-1" color="accent">
+                  Manage Orders
+                 </button>
+          </div>
+      </div>
+      <mat-card class="mt-2 ">
+          <mat-card-title class="text-left">Store Visitors</mat-card-title>
+
+      </mat-card>
+      <mat-card class="mt-2 ">
+          <mat-card-title class="text-left">Orders placed </mat-card-title>
+
+      </mat-card>
+      <mat-card class="mt-2 ">
+          <mat-card-title class="text-left">Products sold</mat-card-title>
+
+      </mat-card>
+
+
+
+
+
+
+
+</div>

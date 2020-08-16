@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="d-flex align-items-center min-vh-100">
+
+        <div class="container-fluid py-3">
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                  <mat-card>
+                      <p class="h1 text-center">Add Product</p>
+
+                      <div  *ngIf = "error.toString().length > 1" class="alert text-center alert-danger">
+                          <a  class="close font-weight-light"  data-dismiss="alert"></a>{{error}}
+                      </div>
+                      <div  *ngIf = "success.toString().length > 1" class="alert text-center alert-success">
+                          <a  class="close font-weight-light"  data-dismiss="alert"></a>{{success}}
+                      </div>
+                      <form [formGroup]="form" (submit)= "onSubmit()" #f = "ngForm" >
+
+                          <div class="form-group mt-2">
+                              <a type="button" mat-raised-button (click) ="filepicker.click()" >
+                                Pick Image
+                              </a>
+                              <input type="file" hidden=true (change)= "onImagePicked($event)" #filepicker>
+                            </div>
+                            <div class="form-group mt-2" *ngIf="imagePreview !== '' && imagePreview" class="image-preview">
+                              <img   [src]="imagePreview" [alt]="form.value.title">
+                            </div>
+                          <div class="form-group mt-3">
+                              <input
+                                  class="form-control input-lg"
+                                  type="text"
+                                  formControlName = "name"
+                                  placeholder="Product Name"
+                                  />
+
+                          </div>
+                          <div class="form-group mt-2">
+                              <textarea
+                                  class="form-control input-lg"
+                                  type="text"
+                                  formControlName = "description"
+                                  placeholder="Description"
+                              >
+                              </textarea>
+
+
+                          </div>
+                          <div class="form-group mt-2">
+                              <input
+                                  class="form-control input-lg"
+                                  type="number"
+                                  formControlName = "price"
+                                  placeholder="Price"
+                                  />
+
+                          </div>
+                          <div class="form-group mt-2">
+                              <input
+                                  class="form-control input-lg"
+                                  type="number"
+                                  formControlName = "stock"
+                                  placeholder="Quantity"
+                                  />
+
+                          </div>
+                          <mat-radio-group class="example-radio-group" aria-label="Select an option" formControlName = "category">
+                            <mat-radio-button class="example-radio-button ml-2" *ngFor="let cate of categories" [value]="cate">
+                                {{cate.name}}
+                            </mat-radio-button>
+                          </mat-radio-group>
+
+
+                          <button mat-raised-button class="btn-block"  [disabled] = "form.invalid" color ="primary"  type="submit">
+                              CREATE
+                          </button>
+                      </form>
+                  </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
