@@ -14,11 +14,14 @@ export class CartComponent implements OnInit {
   products = [];
   authState = null;
   img ;
+  error:String ="";
+  success:String = "";
   totalAmount = null;
   constructor(private auth:AuthService,private cartService:CartService,public imgHelper:  ImageHelperService,private router: Router,private orderService:OrderService ) {
 
     this.authState = auth.isAuthenticated();
     this.products = cartService.loadCart();
+
 
     this.getAmmount(this.products);
   }
@@ -33,6 +36,7 @@ export class CartComponent implements OnInit {
   removeFromCart(productId){
 
      this.products = this.cartService.removeFromCart(productId);
+     this.getAmmount(this.products);
   }
   getAmmount= (products)=>{
     let amount = 0;
@@ -51,6 +55,7 @@ export class CartComponent implements OnInit {
     this.cartService.setCartEmpty();
     this.products = [];
 
+    this.success = "Thanks you for your order!"
 
   }
 }

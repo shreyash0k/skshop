@@ -29,6 +29,8 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 import { OrdersComponent } from './components/user/orders/orders.component';
 import { ManageComponent } from './components/admin/manage/manage.component';
@@ -75,7 +77,8 @@ import { CartComponent } from './components/user/cart/cart.component'
     MatCardModule,
     MatRadioModule,
     ImageHelperModule,
-    NgxBraintreeModule
+    NgxBraintreeModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

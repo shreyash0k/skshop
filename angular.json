@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "opstore"
+  "defaultProject": "opstore",
+  "cli": {
+    "analytics": false
+  }
 }

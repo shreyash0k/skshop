@@ -1,37 +1,27 @@
 
 <mat-nav-list>
     <a mat-list-item routerLink = "" (click)="onSideNavClose()">
-       <mat-icon>home</mat-icon>
        <span class="nav-caption">Home
        </span>
     </a>
-    <a mat-list-item routerLink = "" (click)="onSideNavClose()">
-       <mat-icon>home</mat-icon>
+    <a mat-list-item [routerLink] ="['/cart']" (click)="onSideNavClose()">
        <span class="nav-caption">Cart
        </span>
     </a>
-    <a mat-list-item routerLink = "" (click)="onSideNavClose()">
-       <mat-icon>home</mat-icon>
-       <span class="nav-caption">Dashboard
+    <a *ngIf = "authenticate && authenticate.user.role === 1" [routerLink] = "['/admin/manage']" mat-list-item  (click)="onSideNavClose()">
+       <span class="nav-caption">Manage
        </span>
     </a>
-    <a mat-list-item routerLink = "" (click)="onSideNavClose()">
-       <mat-icon>home</mat-icon>
-       <span class="nav-caption">A. Dashboard
-       </span>
-    </a>
-    <a mat-list-item routerLink = "" (click)="onSideNavClose()">
-       <mat-icon>assignment_ind</mat-icon>
+    
+    <a mat-list-item *ngIf = "!authenticate" [routerLink] = "['/signin']" (click)="onSideNavClose()">
        <span class="nav-caption">Signin
        </span>
     </a>
-    <a mat-list-item routerLink = "/signup" (click)="onSideNavClose()">
-       <mat-icon>account_balance</mat-icon>
+    <a mat-list-item *ngIf = "!authenticate"  [routerLink] = "['/signup']" (click)="onSideNavClose()">
        <span class="nav-caption">Signup
        </span>
     </a>
-    <a mat-list-item routerLink = "/signout" (click)="onSideNavClose()">
-       <mat-icon>account_balance</mat-icon>
+    <a mat-list-item  *ngIf = "authenticate" routerLink ="" (click)="onLogout()">
        <span class="nav-caption">Signout
        </span>
     </a>
